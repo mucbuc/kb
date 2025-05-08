@@ -13,7 +13,7 @@ _by Daniel B._
 
 #### Operations
 
-![Line Segment1](https://github.com/mucbuc/kb/blob/fe046fa75503b27f50f80256d6d0de9a1610c483/test.gif)
+![Line Segment1](https://github.com/mucbuc/kb/blob/e91dfc6b191d148122739afd1e0a00004a60d808/test.gif)
 
 ##### Add
 ##### Subtract
