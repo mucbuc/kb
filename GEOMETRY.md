@@ -2,10 +2,8 @@
 _by Daniel B._
 
 ## Constructs
-
-### [Line Segment](https://en.wikipedia.org/wiki/Line_segment)
-
-![Image](./perp.svg "icon")
+### Line Segment
+![Line Segment](https://raw.githubusercontent.com/mucbuc/kb/refs/heads/dev/perp.svg)
 
 - part of a straight line that is bounded by two distinct endpoints
 - contains every point on the line that is between its endpoints
@@ -14,6 +12,8 @@ _by Daniel B._
 - half-open line segment includes exactly one of the endpoints
 
 #### Operations
+
+![Line Segment](https://en.wikipedia.org/wiki/File:Rotating_earth_(large).gif)
 
 ##### Add
 ##### Subtract
