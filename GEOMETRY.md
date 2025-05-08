@@ -13,7 +13,7 @@ _by Daniel B._
 
 #### Operations
 
-![Line Segment](https://en.wikipedia.org/wiki/File:Rotating_earth_(large).gif)
+![Line Segment1](https://github.com/mucbuc/kb/blob/fe046fa75503b27f50f80256d6d0de9a1610c483/test.gif)
 
 ##### Add
 ##### Subtract
