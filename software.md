@@ -1,0 +1,8 @@
+
+#Ragged array/CSR(compressed sparse row)
+
+A ragged array (also called a "jagged array") is an array of arrays where the inner arrays don't all have the same length — as opposed to a regular 2D array/matrix where every row has the same number of columns.
+In your case: a Composition is a list of Loops, and each Loop has a different number of points and segments. Loop A might have 6 points, loop B might have 10. So Composition::loops() is conceptually a ragged array — a list of variable-length lists.
+The naive way to represent this in memory is std::vector<std::vector<T>> — an outer vector where each element is its own independently-allocated inner vector. This works but has poor cache locality (lots of pointer-chasing) and doesn't map cleanly onto a single GPU buffer.
+The CSR-style encoding you're using sidesteps this: instead of separate inner vectors, all the data is concatenated into one flat array (flat_points), and a second small array of cumulative offsets (flat_loops) tells you where each "row" (loop) starts and ends within that flat array. So flat_loops[i] - flat_loops[i-1] (with the i==0 special case) gives you the length of row i, and the actual data for row i lives in flat_points[flat_loops[i-1] .. flat_loops[i]].
+This is exactly the format sparse matrix libraries use (hence "compressed sparse row" / CSR) for the same reason — one row per non-empty entity, variable length per row, but stored contiguously for cache-friendly and GPU-friendly access. The tradeoff is what we've been discussing: reconstructing "where does row i live" requires that i-1 lookup and edge-case handling, which is where the bugs have been creeping in.
